@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% block content %}
+{% load staticfiles%}
+
+
+
+
+
+		<style type="">
+.pimg2{
+  position:relative;
+  opacity:0.70;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+
+  /*
+    fixed = parallax
+    scroll = normal
+  */
+  background-attachment:fixed;
+}
+
+
+.pimg2{
+  background-image:url("{% static 'img/lunch-1.jpg' %}");
+  min-height:400px;
+}
+
+.section-light{
+  background-color:#f4f4f4;
+  color:#666;
+}
+
+.section-dark{
+  background-color:#282e34;
+  color:#ddd;
+}
+
+.ptext{
+  position:absolute;
+  top:50%;
+  width:100%;
+  text-align:center;
+  color:#000;
+  font-size:27px;
+  letter-spacing:8px;
+  text-transform:uppercase;
+}
+
+.ptext .border{
+  background-color:#111;
+  color:#fff;
+  padding:20px;
+}
+
+.ptext .border.trans{
+  background-color:transparent;
+}
+
+@media(max-width:568px){
+  .pimg2{
+    background-attachment:scroll;
+  }
+}
+
+
+
+		</style>
+
+
+	<body>
+
+  <!-- <div class="pimg1">
+    <div class="ptext">
+      <span class="border">
+        Co-Orditoriem
+      </span>
+    </div>
+  </div> -->
+
+<!--   <section class="section section-light">
+    <img class="pull-left" align="left" style="" width="400px" height="300px" style="float: left;" src="./img/music-1.jpg">
+    	<h1 class="display-4 text-center">Music caffee</h1>
+    	<div class="box">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellat Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellatrepellat Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellat
+    </div>
+	
+
+  </section> -->
+    <!-- <div class="box p-3 mb-5 bg-light rounded"> </div> -->
+
+  <div class="pimg2">
+    <div class="ptext">
+      <span class="border trans">
+        Lunch Time!!
+      </span>
+    </div>
+  </div>
+
+  <section class="section section-light">
+<!--    <h1 class="display-4 text-center">Music caffee</h1>
+    	<div class="box" >
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, laudantium, quibusdam? Nobis, delectus, commodi, fugit amet tempora facere dolores nisi facilis consequatur, odio hic minima nostrum. Perferendis eos earum praesentium, blanditiis sapiente labore aliquam ipsa architecto vitae. Minima soluta temporibus voluptates inventore commodi cumque esse suscipit optio aliquam et, dolorem a cupiditate nihil fuga laboriosam fugiat placeat dignissimos! Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellat Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellatrepellat Unde eveniet placeat quisquam blanditiis voluptatem doloremque fugiat dolor repellendus ratione in. repellat
+    </div> -->
+    <div class="shadow p-3 mb-5 bg-white rounded display-4 text-center bg-light">LUNCH FOODS</div>
+	<div class="container">
+		{% for lfood in lunch_item %}
+		<div class="shadow-lg p-3 mb-5 bg-white rounded">
+			<div class="card mb-3">
+			 	<img class="card-img-top" src="{{lfood.image.url}}" alt="Card image cap">
+			 	<div class="card-body">
+				    <h5 class="card-title display-3 text-left">{{ lfood.name }}</h5>
+				   	<p class="card-text text-left">{{ lfood.article }}</p>
+				    <ul class="list-group">
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+						Normal Price
+						<span class="badge badge-white badge-pill">{{ lfood.price }}</span>
+						</li>
+						<li class="list-group-item d-flex justify-content-between align-items-center">
+					</ul>
+					<p style="margin-left:5px;"class="card-text"><small class="text-muted"> </small></p>
+			  	</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+   
+
+  </section>
+
+
+
+	</body>
+
+{% endblock content %}
