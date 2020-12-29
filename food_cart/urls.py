@@ -25,8 +25,7 @@ urlpatterns = [
     path('foods/', include('all_foods.urls')),
     path('users/', include('users.urls')),
     path('', OfferFoodsList.as_view(),name="home" ),
-    path('/lunch_item', Lunch_foods.as_view(),name="lunch_item" ),
-
+    path('lunch_item', Lunch_foods.as_view(),name="lunch_item"),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
